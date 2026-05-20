@@ -12,6 +12,31 @@ Gérer toute la logique métier :
 
 ---
 
+## 🚀 Démarrage rapide
+
+### Prérequis
+- Java 17+
+- Maven
+- Docker
+
+### Lancer en local
+
+```bash
+# Lancer la base de données Postgres
+$ docker-compose up -d db
+
+# Lancer l'application Spring Boot
+$ ./mvnw spring-boot:run
+```
+
+### Documentation API
+
+Une fois l'application démarrée, accédez à la documentation Swagger :
+
+- [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
+---
+
 ## 🧠 Architecture
 
 Controller → Service → Repository → Database
