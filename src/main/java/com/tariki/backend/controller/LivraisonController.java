@@ -12,6 +12,12 @@ import java.util.List;
 @RequestMapping("/api/livraisons")
 @Tag(name = "Livraisons", description = "CRUD Livraisons")
 public class LivraisonController {
+    public record StatusRequest(@jakarta.validation.constraints.NotBlank String statut) { }
+
+    @PatchMapping("/{id}/statut")
+    public LivraisonDTO status(@PathVariable Long id, @jakarta.validation.Valid @RequestBody StatusRequest request) {
+        return service.changeStatus(id, request.statut());
+    }
     private final LivraisonService service;
 
     public LivraisonController(LivraisonService service) {

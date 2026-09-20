@@ -15,11 +15,14 @@ public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true)
     private String username;
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
+    @ManyToOne
+    private Entreprise entreprise;
     public enum Role {
-        ADMIN, CHAUFFEUR, CLIENT
+        ADMIN, ENTREPRISE, CHAUFFEUR, CLIENT
     }
 }

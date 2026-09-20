@@ -20,6 +20,8 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/tariki_db
       SPRING_DATASOURCE_USERNAME: tariki
       SPRING_DATASOURCE_PASSWORD: tariki
+      SPRING_PROFILES_ACTIVE: demo
+      CHAT_ENCRYPTION_KEY: ${CHAT_ENCRYPTION_KEY:?Executez ./scripts/init-chat-key.ps1 avant le demarrage}
   pgadmin:
     image: dpage/pgadmin4
     restart: always

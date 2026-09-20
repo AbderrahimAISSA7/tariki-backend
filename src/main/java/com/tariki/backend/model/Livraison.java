@@ -16,6 +16,16 @@ public class Livraison {
     private String reference;
     private LocalDate dateLivraison;
     private String statut;
+    private String villeDepart;
+    private String villeArrivee;
+    private String marchandise;
+    private java.math.BigDecimal poidsTonnes;
+    private String dernierePosition;
+    private java.time.LocalDateTime miseAJour;
+    @Version
+    private Long version;
+    @ManyToOne
+    private Entreprise entreprise;
 
     @ManyToOne
     private Chauffeur chauffeur;

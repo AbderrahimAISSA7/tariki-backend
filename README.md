@@ -21,13 +21,18 @@ Gérer toute la logique métier :
 
 ### Lancer en local
 
-```bash
-# Lancer la base de données Postgres
-$ docker-compose up -d db
+```powershell
+# Initialiser la cle de messagerie locale (conserve une cle existante)
+./scripts/init-chat-key.ps1
 
-# Lancer l'application Spring Boot
-$ ./mvnw spring-boot:run
+# Lancer PostgreSQL et le backend
+docker compose up -d --build db backend
 ```
+
+Le backend exige `CHAT_ENCRYPTION_KEY`, injectée par Compose depuis le fichier `.env`
+non versionné. Pour lancer avec Maven, exporter cette même variable et libérer le port 8080.
+Conserver la clé séparément des sauvegardes de la base.
+Voir [CHAT.md](CHAT.md) pour la messagerie chiffrée et [DEMO.md](DEMO.md) pour les comptes de test.
 
 ### Documentation API
 

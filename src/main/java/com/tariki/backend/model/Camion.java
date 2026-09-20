@@ -16,5 +16,7 @@ public class Camion {
     private String marque;
     private String modele;
     private int capacite;
+    @ManyToOne
+    private Entreprise entreprise;
     // ... autres champs ...
 }

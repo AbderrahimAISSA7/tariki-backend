@@ -10,6 +10,7 @@ public class ClientMapper {
         ClientDTO dto = new ClientDTO();
         dto.setId(client.getId());
         dto.setNom(client.getNom());
+        dto.setPrenom(client.getPrenom());
         dto.setEmail(client.getEmail());
         dto.setTelephone(client.getTelephone());
         dto.setAdresse(client.getAdresse());
@@ -19,6 +20,7 @@ public class ClientMapper {
         return Client.builder()
                 .id(dto.getId())
                 .nom(dto.getNom())
+                .prenom(dto.getPrenom())
                 .email(dto.getEmail())
                 .telephone(dto.getTelephone())
                 .adresse(dto.getAdresse())

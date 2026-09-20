@@ -18,6 +18,17 @@ public class LivraisonMapper {
         dto.setChauffeurId(livraison.getChauffeur() != null ? livraison.getChauffeur().getId() : null);
         dto.setCamionId(livraison.getCamion() != null ? livraison.getCamion().getId() : null);
         dto.setClientId(livraison.getClient() != null ? livraison.getClient().getId() : null);
+        dto.setEntrepriseId(livraison.getEntreprise() != null ? livraison.getEntreprise().getId() : null);
+        dto.setEntrepriseNom(livraison.getEntreprise() != null ? livraison.getEntreprise().getNom() : null);
+        dto.setChauffeurNom(livraison.getChauffeur() != null ? livraison.getChauffeur().getPrenom() + " " + livraison.getChauffeur().getNom() : null);
+        dto.setCamionImmatriculation(livraison.getCamion() != null ? livraison.getCamion().getImmatriculation() : null);
+        dto.setClientNom(livraison.getClient() != null ? livraison.getClient().getNom() : null);
+        dto.setVilleDepart(livraison.getVilleDepart());
+        dto.setVilleArrivee(livraison.getVilleArrivee());
+        dto.setMarchandise(livraison.getMarchandise());
+        dto.setPoidsTonnes(livraison.getPoidsTonnes());
+        dto.setDernierePosition(livraison.getDernierePosition());
+        dto.setMiseAJour(livraison.getMiseAJour());
         return dto;
     }
     public Livraison toEntity(LivraisonDTO dto, Chauffeur chauffeur, Camion camion, Client client) {
@@ -29,6 +40,10 @@ public class LivraisonMapper {
                 .chauffeur(chauffeur)
                 .camion(camion)
                 .client(client)
+                .villeDepart(dto.getVilleDepart())
+                .villeArrivee(dto.getVilleArrivee())
+                .marchandise(dto.getMarchandise())
+                .poidsTonnes(dto.getPoidsTonnes())
                 .build();
     }
 }
