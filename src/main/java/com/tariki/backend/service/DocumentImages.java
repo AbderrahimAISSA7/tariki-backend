@@ -11,6 +11,14 @@ final class DocumentImages {
     private DocumentImages() { }
 
     static byte[] decode(String dataUrl, boolean signature) {
+        return decode(dataUrl, signature, false);
+    }
+
+    static byte[] decodePhoto(String dataUrl) {
+        return decode(dataUrl, false, true);
+    }
+
+    private static byte[] decode(String dataUrl, boolean signature, boolean photo) {
         try {
             if (dataUrl == null || dataUrl.length() > (signature ? 400000 : 1500000)) throw new IOException();
             String prefix = dataUrl.startsWith("data:image/png;base64,") ? "data:image/png;base64,"
@@ -42,12 +50,22 @@ final class DocumentImages {
                 if (ink < 30 || maxX-minX < 20 || maxY-minY < 5 || ink > image.getWidth()*image.getHeight()*0.6) throw new IOException();
             }
             var output = new ByteArrayOutputStream();
-            ImageIO.write(image, "png", output);
+            if (photo) {
+                var rgb = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_RGB);
+                var graphics = rgb.createGraphics();
+                try {
+                    graphics.setColor(java.awt.Color.WHITE);
+                    graphics.fillRect(0, 0, rgb.getWidth(), rgb.getHeight());
+                    graphics.drawImage(image, 0, 0, null);
+                } finally { graphics.dispose(); }
+                ImageIO.write(rgb, "jpeg", output);
+            } else ImageIO.write(image, "png", output);
             if (output.size() > (signature ? 1000000 : 2000000)) throw new IOException();
             return output.toByteArray();
         } catch (IOException | IllegalArgumentException exception) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, signature
-                    ? "Signature PNG invalide ou vide (2000 x 1200 maximum)" : "Logo PNG/JPEG invalide (1 Mo, 2000 x 1200 maximum)");
+                    ? "Signature PNG invalide ou vide (2000 x 1200 maximum)"
+                    : (photo ? "Photo" : "Logo") + " PNG/JPEG invalide (1 Mo, 2000 x 1200 maximum)");
         }
     }
 }

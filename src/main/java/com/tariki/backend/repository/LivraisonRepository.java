@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LivraisonRepository extends JpaRepository<Livraison, Long> {
+    boolean existsByCamionId(Long camionId);
+    boolean existsByCamionIdAndStatutInAndPoidsTonnesGreaterThan(Long camionId, java.util.List<String> statuts, java.math.BigDecimal poidsTonnes);
     @org.springframework.data.jpa.repository.Query(value = "SELECT id FROM livraison WHERE id = :id FOR UPDATE", nativeQuery = true)
     Long lockRow(@org.springframework.data.repository.query.Param("id") Long id);
     boolean existsByReferenceIgnoreCaseAndEntrepriseId(String reference, Long entrepriseId);

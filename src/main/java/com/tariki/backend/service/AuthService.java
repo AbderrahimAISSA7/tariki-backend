@@ -23,6 +23,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Base64;
 import java.util.Locale;
 
 @Service
@@ -150,10 +151,14 @@ public class AuthService {
         String nom = user instanceof Client c ? c.getNom() : user instanceof Chauffeur c ? c.getNom() : ((ResponsableEntreprise) user).getNom();
         String prenom = user instanceof Client c ? c.getPrenom() : user instanceof Chauffeur c ? c.getPrenom() : ((ResponsableEntreprise) user).getPrenom();
         String telephone = user instanceof Client c ? c.getTelephone() : user instanceof Chauffeur c ? c.getTelephone() : user.getEntreprise().getTelephone();
+        boolean companyMember = user.getRole() == User.Role.ENTREPRISE || user.getRole() == User.Role.CHAUFFEUR
+                || user.getRole() == User.Role.ADMIN;
+        byte[] logo = companyMember && user.getEntreprise() != null ? user.getEntreprise().getLogoPng() : null;
         return new ProfileResponse(user.getId(), user.getUsername(), nom, prenom, telephone, user.getRole().name(),
                 user.getEntreprise() != null ? user.getEntreprise().getId() : null,
                 user.getEntreprise() != null ? user.getEntreprise().getNom() : null,
-                user instanceof Client c ? c.getAdresse() : user.getEntreprise() != null ? user.getEntreprise().getAdresse() : null);
+                user instanceof Client c ? c.getAdresse() : user.getEntreprise() != null ? user.getEntreprise().getAdresse() : null,
+                logo != null && logo.length > 0 ? "data:image/png;base64," + Base64.getEncoder().encodeToString(logo) : null);
     }
 
     private static String trim(String value) {

@@ -1,3 +1,4 @@
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\controller\CamionEntretienController.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\model\Signature.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\security\CorsConfig.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\repository\ChatMessageRepository.java
@@ -19,6 +20,7 @@ C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tari
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\TarikiBackendApplication.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\DeliveryWorkflowDTO.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\SignatureDTO.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\model\CamionEntretien.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\DeliveryInvitationService.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\controller\SignatureController.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\CamionDTO.java
@@ -37,9 +39,11 @@ C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tari
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\security\JwtAuthenticationFilter.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\EntrepriseService.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\FactureDTO.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\CamionEntretienDTO.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\repository\SignatureRepository.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\security\DatabaseUserDetailsService.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\repository\EntrepriseRepository.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\CamionEntretienCompletion.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\config\SwaggerConfig.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\exception\GlobalExceptionHandler.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\model\LivePosition.java
@@ -54,9 +58,11 @@ C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tari
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\auth\ProfileResponse.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\FactureService.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\mapper\FactureMapper.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\CamionEntretienService.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\repository\CamionRepository.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\ChauffeurDTO.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\ChauffeurService.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\repository\CamionEntretienRepository.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\repository\ClientRepository.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\model\Livraison.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\repository\FactureRepository.java
@@ -69,6 +75,7 @@ C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tari
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\config\DemoProfiles.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\mapper\EntrepriseMapper.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\security\JwtService.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\CamionEntretienRequest.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\auth\AuthResponse.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\model\Camion.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\mapper\CamionMapper.java

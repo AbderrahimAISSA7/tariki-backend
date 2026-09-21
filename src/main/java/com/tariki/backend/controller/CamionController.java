@@ -5,6 +5,11 @@ import com.tariki.backend.service.CamionService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import org.springframework.http.CacheControl;
+import org.springframework.http.MediaType;
 
 import java.util.List;
 
@@ -30,12 +35,13 @@ public class CamionController {
     }
 
     @PostMapping
-    public CamionDTO create(@RequestBody CamionDTO dto) {
+    public CamionDTO create(@Valid @RequestBody CamionDTO dto) {
+        dto.setId(null);
         return service.save(dto);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CamionDTO> update(@PathVariable Long id, @RequestBody CamionDTO dto) {
+    public ResponseEntity<CamionDTO> update(@PathVariable Long id, @Valid @RequestBody CamionDTO dto) {
         dto.setId(id);
         CamionDTO updated = service.save(dto);
         return ResponseEntity.ok(updated);
@@ -46,4 +52,17 @@ public class CamionController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/{id}/photo")
+    public ResponseEntity<byte[]> photo(@PathVariable Long id) {
+        return ResponseEntity.ok().cacheControl(CacheControl.noStore()).contentType(MediaType.IMAGE_JPEG)
+                .header("X-Content-Type-Options", "nosniff").body(service.photo(id));
+    }
+
+    @PutMapping("/{id}/photo")
+    public CamionDTO photo(@PathVariable Long id, @Valid @RequestBody PhotoRequest request) {
+        return service.photo(id, request.image(), request.version());
+    }
+
+    public record PhotoRequest(@Size(max = 1500000) String image, @NotNull Long version) { }
 }

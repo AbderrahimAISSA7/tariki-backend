@@ -8,11 +8,15 @@ com\tariki\backend\mapper\CamionMapper.class
 com\tariki\backend\repository\ChatMessageRepository.class
 com\tariki\backend\repository\LivePositionRepository.class
 com\tariki\backend\dto\DeliveryWorkflowDTO$Receipt.class
+com\tariki\backend\dto\CamionEntretienCompletion.class
 com\tariki\backend\model\LivePosition.class
+com\tariki\backend\service\CamionEntretienService.class
 com\tariki\backend\service\TrackingService.class
 com\tariki\backend\model\ChatMessage.class
+com\tariki\backend\controller\CamionEntretienController.class
 com\tariki\backend\controller\AuthController.class
 com\tariki\backend\service\ChatService$Channel.class
+com\tariki\backend\dto\CamionEntretienRequest.class
 com\tariki\backend\controller\DeliveryWorkflowController.class
 com\tariki\backend\repository\LivraisonRepository.class
 com\tariki\backend\controller\ChatController.class
@@ -52,6 +56,7 @@ com\tariki\backend\service\ChatEvents$Connection.class
 com\tariki\backend\service\AuthService.class
 com\tariki\backend\dto\ClientDTO.class
 com\tariki\backend\dto\TrackingDTO$Stop.class
+com\tariki\backend\model\CamionEntretien.class
 com\tariki\backend\model\Client$ClientBuilder.class
 com\tariki\backend\mapper\FactureMapper.class
 com\tariki\backend\service\ChauffeurService.class
@@ -60,6 +65,7 @@ com\tariki\backend\model\ResponsableEntreprise$ResponsableEntrepriseBuilderImpl.
 com\tariki\backend\dto\DeliveryWorkflowDTO$InvitePreview.class
 com\tariki\backend\controller\TrackingController.class
 com\tariki\backend\model\Facture.class
+com\tariki\backend\model\Camion$Carburant.class
 com\tariki\backend\repository\ChauffeurRepository.class
 com\tariki\backend\service\CamionService.class
 com\tariki\backend\mapper\LivraisonMapper.class
@@ -72,7 +78,9 @@ com\tariki\backend\repository\ClientRepository.class
 com\tariki\backend\security\JwtService.class
 com\tariki\backend\model\Entreprise$EntrepriseBuilder.class
 com\tariki\backend\dto\TrackingDTO$Update.class
+com\tariki\backend\dto\CamionEntretienDTO.class
 com\tariki\backend\service\DeliveryCompletionService.class
+com\tariki\backend\model\CamionEntretien$Type.class
 com\tariki\backend\repository\CamionRepository.class
 com\tariki\backend\model\Entreprise.class
 com\tariki\backend\security\AccessScope.class
@@ -85,6 +93,7 @@ com\tariki\backend\security\CorsConfig.class
 com\tariki\backend\service\ChatService.class
 com\tariki\backend\service\LivraisonService.class
 com\tariki\backend\service\SignatureService.class
+com\tariki\backend\controller\CamionController$PhotoRequest.class
 com\tariki\backend\dto\ChatDTO$Read.class
 com\tariki\backend\dto\ChatDTO$History.class
 com\tariki\backend\security\DatabaseUserDetailsService.class
@@ -93,6 +102,7 @@ com\tariki\backend\model\User$UserBuilder.class
 com\tariki\backend\config\SwaggerConfig.class
 com\tariki\backend\dto\ChatDTO$Conversation.class
 com\tariki\backend\exception\GlobalExceptionHandler.class
+com\tariki\backend\repository\CamionEntretienRepository.class
 com\tariki\backend\dto\DeliveryWorkflowDTO$Pricing.class
 com\tariki\backend\model\Chauffeur$ChauffeurBuilderImpl.class
 com\tariki\backend\controller\ClientController.class

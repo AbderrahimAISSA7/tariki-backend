@@ -13,15 +13,32 @@ public class CamionMapper {
         dto.setMarque(camion.getMarque());
         dto.setModele(camion.getModele());
         dto.setCapacite(camion.getCapacite());
+        dto.setCarburant(camion.getCarburant());
+        dto.setNombreRoues(camion.getNombreRoues());
+        dto.setPuissanceCh(camion.getPuissanceCh());
+        dto.setAnnee(camion.getAnnee());
+        dto.setNumeroChassis(camion.getNumeroChassis());
+        dto.setKilometrage(camion.getKilometrage());
+        dto.setScorePneus(camion.getScorePneus());
+        dto.setControlePneusLe(camion.getControlePneusLe());
+        dto.setNotes(camion.getNotes());
+        dto.setVersion(camion.getVersion());
+        dto.setPhotoAvailable(camion.getPhotoJpeg() != null);
         return dto;
     }
-    public Camion toEntity(CamionDTO dto) {
-        return Camion.builder()
-                .id(dto.getId())
-                .immatriculation(dto.getImmatriculation())
-                .marque(dto.getMarque())
-                .modele(dto.getModele())
-                .capacite(dto.getCapacite())
-                .build();
+    public void update(CamionDTO dto, Camion camion) {
+        camion.setImmatriculation(dto.getImmatriculation().trim());
+        camion.setMarque(dto.getMarque().trim());
+        camion.setModele(dto.getModele().trim());
+        camion.setCapacite(dto.getCapacite());
+        camion.setCarburant(dto.getCarburant());
+        camion.setNombreRoues(dto.getNombreRoues());
+        camion.setPuissanceCh(dto.getPuissanceCh());
+        camion.setAnnee(dto.getAnnee());
+        camion.setNumeroChassis(dto.getNumeroChassis());
+        camion.setKilometrage(dto.getKilometrage());
+        camion.setScorePneus(dto.getScorePneus());
+        camion.setControlePneusLe(dto.getControlePneusLe());
+        camion.setNotes(dto.getNotes());
     }
 }

@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
+import java.util.Base64;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -82,6 +83,37 @@ class ProfileAccessTest {
         }
         mvc.perform(get("/api/livraisons/" + delivery("OT-2026-006").getId()).header("Authorization", token))
                 .andExpect(status().isNotFound());
+    }
+
+    @Test void brandingFollowsCompanyMembershipWithoutOpeningManagementAccess() throws Exception {
+        String companyToken = login("entreprise", "Entreprise123!");
+        String driverToken = login("chauffeur", "Chauffeur123!");
+        String clientToken = login("client", "Client123!");
+        assertThat(read("/api/auth/me", driverToken).get("entrepriseLogo").isNull()).isTrue();
+        Entreprise company = delivery("OT-2026-001").getEntreprise();
+        String png = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=";
+        company.setLogoPng(Base64.getDecoder().decode(png));
+        entreprises.saveAndFlush(company);
+        for (String token : Set.of(companyToken, driverToken)) {
+            assertThat(read("/api/auth/me", token).get("entrepriseLogo").asText()).isEqualTo("data:image/png;base64," + png);
+        }
+        assertThat(read("/api/auth/me", clientToken).get("entrepriseLogo").isNull()).isTrue();
+        mvc.perform(get("/api/entreprises").header("Authorization", driverToken)).andExpect(status().isForbidden());
+
+        User driver = users.findByUsernameIgnoreCase("chauffeur.demo@tariki.ma").orElseThrow();
+        Entreprise other = entreprises.saveAndFlush(Entreprise.builder().nom("Autre entreprise").build());
+        driver.setEntreprise(other);
+        users.saveAndFlush(driver);
+        JsonNode reassigned = read("/api/auth/me", driverToken);
+        assertThat(reassigned.get("entrepriseId").asLong()).isEqualTo(other.getId());
+        assertThat(reassigned.get("entrepriseLogo").isNull()).isTrue();
+        driver.setEntreprise(null);
+        users.saveAndFlush(driver);
+        assertThat(read("/api/auth/me", driverToken).get("entrepriseLogo").isNull()).isTrue();
+
+        company.setLogoPng(null);
+        entreprises.saveAndFlush(company);
+        assertThat(read("/api/auth/me", companyToken).get("entrepriseLogo").isNull()).isTrue();
     }
 
     @Test void clientSeesOnlyTenTonnesOfCementAndCannotReachManagement() throws Exception {
