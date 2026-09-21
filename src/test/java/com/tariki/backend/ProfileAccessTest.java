@@ -132,8 +132,8 @@ class ProfileAccessTest {
         mvc.perform(patch("/api/livraisons/" + planned + "/statut").header("Authorization", token)
                 .contentType("application/json").content("{\"statut\":\"EN_COURS\"}")).andExpect(status().isConflict());
         mvc.perform(patch("/api/livraisons/" + active + "/statut").header("Authorization", token)
-                .contentType("application/json").content("{\"statut\":\"LIVREE\"}")).andExpect(status().isOk());
-        assertThat(read("/api/livraisons/" + active, login("client", "Client123!")).get("statut").asText()).isEqualTo("LIVREE");
+                .contentType("application/json").content("{\"statut\":\"EN_ATTENTE_VALIDATION\"}")).andExpect(status().isOk());
+        assertThat(read("/api/livraisons/" + active, login("client", "Client123!")).get("statut").asText()).isEqualTo("EN_ATTENTE_VALIDATION");
         mvc.perform(patch("/api/livraisons/" + planned + "/statut").header("Authorization", token)
                 .contentType("application/json").content("{\"statut\":\"EN_COURS\"}")).andExpect(status().isOk());
         mvc.perform(patch("/api/livraisons/" + active + "/statut").header("Authorization", token)
@@ -163,6 +163,9 @@ class ProfileAccessTest {
                 "camionId", assigned.getCamion().getId(), "clientId", assigned.getClient().getId()));
         payload.put("statut", "LIVREE");
         payload.put("entrepriseId", -1);
+        payload.put("serviceFacture", "Transport de ciment");
+        payload.put("prixHT", 1200);
+        payload.put("tauxTVA", 20);
         JsonNode created = json.readTree(mvc.perform(post("/api/livraisons").header("Authorization", token)
                         .contentType("application/json").content(json.writeValueAsString(payload)))
                 .andExpect(status().isOk()).andReturn().getResponse().getContentAsString());

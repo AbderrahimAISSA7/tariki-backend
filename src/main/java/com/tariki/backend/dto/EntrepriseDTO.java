@@ -9,4 +9,8 @@ public class EntrepriseDTO {
     private String adresse;
     private String email;
     private String telephone;
+    private String ice;
+    private String identifiantFiscal;
+    private String registreCommerce;
+    private String logo;
 }

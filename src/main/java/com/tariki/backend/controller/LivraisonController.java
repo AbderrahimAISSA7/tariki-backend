@@ -36,12 +36,13 @@ public class LivraisonController {
     }
 
     @PostMapping
-    public LivraisonDTO create(@RequestBody LivraisonDTO dto) {
+    public LivraisonDTO create(@jakarta.validation.Valid @RequestBody LivraisonDTO dto) {
+        dto.setId(null);
         return service.save(dto);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<LivraisonDTO> update(@PathVariable Long id, @RequestBody LivraisonDTO dto) {
+    public ResponseEntity<LivraisonDTO> update(@PathVariable Long id, @jakarta.validation.Valid @RequestBody LivraisonDTO dto) {
         dto.setId(id);
         LivraisonDTO updated = service.save(dto);
         return ResponseEntity.ok(updated);

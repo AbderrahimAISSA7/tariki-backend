@@ -20,7 +20,7 @@ public class DatabaseUserDetailsService implements UserDetailsService {
         User user = userRepository.findByUsernameIgnoreCase(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Utilisateur introuvable"));
 
-        if (user.getPassword() == null || user.getRole() == null) {
+        if (user.getPassword() == null || user.getRole() == null || user.isInvitationPending()) {
             throw new UsernameNotFoundException("Compte non disponible pour la connexion");
         }
 

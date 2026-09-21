@@ -18,6 +18,11 @@ public class EntrepriseController {
         this.service = service;
     }
 
+    @PatchMapping("/{id}/facturation")
+    public EntrepriseDTO billing(@PathVariable Long id, @jakarta.validation.Valid @RequestBody com.tariki.backend.dto.DeliveryWorkflowDTO.CompanyBilling request) {
+        return service.billing(id,request);
+    }
+
     @GetMapping
     public List<EntrepriseDTO> getAll() {
         return service.findAll();

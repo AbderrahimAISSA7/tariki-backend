@@ -29,6 +29,18 @@ public class LivraisonMapper {
         dto.setPoidsTonnes(livraison.getPoidsTonnes());
         dto.setDernierePosition(livraison.getDernierePosition());
         dto.setMiseAJour(livraison.getMiseAJour());
+        dto.setVersion(livraison.getVersion());
+        dto.setServiceFacture(livraison.getServiceFacture());
+        dto.setPrixHT(livraison.getPrixHT());
+        dto.setTauxTVA(livraison.getTauxTVA());
+        if (livraison.getPrixHT() != null && livraison.getTauxTVA() != null) {
+            var tax = livraison.getPrixHT().multiply(livraison.getTauxTVA()).divide(new java.math.BigDecimal("100"), 2, java.math.RoundingMode.HALF_UP);
+            dto.setMontantTVA(tax);
+            dto.setMontantTTC(livraison.getPrixHT().add(tax));
+        }
+        dto.setArriveeAt(livraison.getArriveeAt());
+        dto.setValidationAt(livraison.getValidationAt());
+        dto.setClientInvitationPending(livraison.getClient() != null && livraison.getClient().isInvitationPending());
         return dto;
     }
     public Livraison toEntity(LivraisonDTO dto, Chauffeur chauffeur, Camion camion, Client client) {

@@ -16,6 +16,13 @@ public class Signature {
     private String signataire;
     private LocalDateTime dateSignature;
     private String type; // CHAUFFEUR ou CLIENT
+    private Long utilisateurId;
+    private java.time.Instant validationAt;
+    private String consentementVersion;
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @Column(columnDefinition = "bytea")
+    private byte[] imagePng;
     @ManyToOne
     private Livraison livraison;
 }

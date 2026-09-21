@@ -18,6 +18,8 @@ public abstract class User {
     @Column(unique = true)
     private String username;
     private String password;
+    @Column(nullable = false, columnDefinition = "boolean not null default false")
+    private boolean invitationPending;
     @Enumerated(EnumType.STRING)
     private Role role;
     @ManyToOne

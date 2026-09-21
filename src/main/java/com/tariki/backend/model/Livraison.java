@@ -24,6 +24,15 @@ public class Livraison {
     private java.time.LocalDateTime miseAJour;
     @Version
     private Long version;
+    private String serviceFacture;
+    @Column(precision = 14, scale = 2)
+    private java.math.BigDecimal prixHT;
+    @Column(precision = 5, scale = 2)
+    private java.math.BigDecimal tauxTVA;
+    private java.time.Instant arriveeAt;
+    private java.time.Instant validationAt;
+    private java.util.UUID invitationId;
+    private java.time.Instant invitationExpiresAt;
     @ManyToOne
     private Entreprise entreprise;
 

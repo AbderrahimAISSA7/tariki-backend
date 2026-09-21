@@ -23,4 +23,15 @@ public class LivraisonDTO {
     private java.math.BigDecimal poidsTonnes;
     private String dernierePosition;
     private java.time.LocalDateTime miseAJour;
+    private Long version;
+    private String serviceFacture;
+    private java.math.BigDecimal prixHT;
+    private java.math.BigDecimal tauxTVA;
+    private java.math.BigDecimal montantTVA;
+    private java.math.BigDecimal montantTTC;
+    private java.time.Instant arriveeAt;
+    private java.time.Instant validationAt;
+    private boolean clientInvitationPending;
+    @jakarta.validation.Valid
+    private DeliveryWorkflowDTO.NewClient nouveauClient;
 }

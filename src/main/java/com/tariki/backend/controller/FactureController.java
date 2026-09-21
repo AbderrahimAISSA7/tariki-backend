@@ -18,6 +18,16 @@ public class FactureController {
         this.service = service;
     }
 
+    @GetMapping(value = "/{id}/pdf", produces = "application/pdf")
+    public ResponseEntity<byte[]> pdf(@PathVariable Long id) {
+        var invoice = service.document(id);
+        return ResponseEntity.ok().contentType(org.springframework.http.MediaType.APPLICATION_PDF)
+                .cacheControl(org.springframework.http.CacheControl.noStore())
+                .header("Content-Disposition", org.springframework.http.ContentDisposition.attachment()
+                        .filename(invoice.getNumero() + ".pdf", java.nio.charset.StandardCharsets.UTF_8).build().toString())
+                .body(invoice.getPdf());
+    }
+
     @GetMapping
     public List<FactureDTO> getAll() {
         return service.findAll();

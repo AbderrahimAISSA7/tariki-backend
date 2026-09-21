@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FactureRepository extends JpaRepository<Facture, Long> {
+    java.util.Optional<Facture> findByLivraisonId(Long livraisonId);
 }

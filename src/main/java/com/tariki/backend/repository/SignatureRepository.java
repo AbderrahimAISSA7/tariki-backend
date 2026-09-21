@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SignatureRepository extends JpaRepository<Signature, Long> {
+    java.util.Optional<Signature> findFirstByLivraisonIdAndType(Long livraisonId, String type);
 }

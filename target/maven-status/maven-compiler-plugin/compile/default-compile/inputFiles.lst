@@ -7,13 +7,19 @@ C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tari
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\model\Facture.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\model\ResponsableEntreprise.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\controller\CamionController.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\controller\DeliveryWorkflowController.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\TrackingDTO.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\model\User.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\controller\LivraisonController.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\security\ChatEncryption.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\mapper\SignatureMapper.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\security\AccessScope.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\DeliveryCompletionService.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\DocumentImages.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\TarikiBackendApplication.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\DeliveryWorkflowDTO.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\SignatureDTO.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\DeliveryInvitationService.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\controller\SignatureController.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\CamionDTO.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\mapper\ClientMapper.java
@@ -27,6 +33,7 @@ C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tari
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\AuthService.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\ClientService.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\LivraisonService.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\TrackingService.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\security\JwtAuthenticationFilter.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\EntrepriseService.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\FactureDTO.java
@@ -35,6 +42,8 @@ C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tari
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\repository\EntrepriseRepository.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\config\SwaggerConfig.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\exception\GlobalExceptionHandler.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\model\LivePosition.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\controller\TrackingController.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\mapper\ChauffeurMapper.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\repository\LivraisonRepository.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\ClientDTO.java
@@ -51,6 +60,7 @@ C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tari
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\repository\ClientRepository.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\model\Livraison.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\repository\FactureRepository.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\InvoicePdf.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\model\Entreprise.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\exception\ResourceNotFoundException.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\repository\ChauffeurRepository.java
@@ -62,6 +72,7 @@ C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tari
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\auth\AuthResponse.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\model\Camion.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\mapper\CamionMapper.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\repository\LivePositionRepository.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\controller\ChatController.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\CamionService.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\LivraisonDTO.java

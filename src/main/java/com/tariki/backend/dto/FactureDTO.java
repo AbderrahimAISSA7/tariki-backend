@@ -11,4 +11,6 @@ public class FactureDTO {
     private BigDecimal montantTVA;
     private BigDecimal montantTTC;
     private Long livraisonId;
+    private java.time.Instant emiseAt;
+    private boolean pdfAvailable;
 }

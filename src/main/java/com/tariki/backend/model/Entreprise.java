@@ -17,5 +17,11 @@ public class Entreprise {
     private String adresse;
     private String email;
     private String telephone;
-    // ... autres champs ...
+    private String ice;
+    private String identifiantFiscal;
+    private String registreCommerce;
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @Column(columnDefinition = "bytea")
+    private byte[] logoPng;
 }

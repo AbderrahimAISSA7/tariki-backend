@@ -71,8 +71,17 @@ npx playwright test
 ```
 
 La variable `TARIKI_TEST_URL` permet de choisir le port frontend des tests.
-Les tests navigateur n'alterent pas les livraisons ; les transitions sont testees en H2.
+Les tests navigateur preservent les livraisons existantes. Le scenario de facturation cree
+ses propres donnees temporaires dans PostgreSQL et les nettoie apres execution.
 Pour un deploiement hors demonstration, desactiver le profil `demo` et definir `JWT_SECRET`.
 
 La messagerie necessite aussi `CHAT_ENCRYPTION_KEY`. Voir [CHAT.md](CHAT.md) pour les acces,
 le chiffrement, la sauvegarde de la cle et les essais en direct.
+
+Le suivi GPS est disponible sur `/suivi`. Le chauffeur doit activer volontairement le partage
+pendant une livraison en cours ; aucune position n'est initialisee par le jeu de demonstration.
+Voir [le guide GPS](../tariki-frontend/TRACKING.md) pour les essais sur telephone et les restrictions d'acces.
+
+La creation avec nouveau client, le QR code, la reception signee par le client et les factures PDF
+sont decrits dans [DELIVERY-WORKFLOW.md](DELIVERY-WORKFLOW.md). Les anciennes livraisons ne sont
+pas modifiees : renseigner le tarif sur la fiche avant de tester une nouvelle validation.

@@ -42,12 +42,19 @@ public class FactureService {
         if (dto.getId() != null) scope.requireVisible(findById(dto.getId()) != null);
         Livraison livraison = dto.getLivraisonId() != null ? livraisonRepository.findById(dto.getLivraisonId()).orElse(null) : null;
         scope.requireDelivery(livraison);
-        Facture saved = repository.save(mapper.toEntity(dto, livraison));
-        return mapper.toDTO(saved);
+        throw new org.springframework.web.server.ResponseStatusException(org.springframework.http.HttpStatus.CONFLICT,
+                "Les factures sont emises uniquement apres validation de reception par le client et ne sont pas modifiables");
     }
 
     public void delete(Long id) {
         scope.requireVisible(findById(id) != null);
-        repository.deleteById(id);
+        throw new org.springframework.web.server.ResponseStatusException(org.springframework.http.HttpStatus.CONFLICT, "Une facture emise ne peut pas etre supprimee");
+    }
+
+    public Facture document(Long id) {
+        Facture facture = repository.findById(id).orElseThrow(() -> new org.springframework.web.server.ResponseStatusException(org.springframework.http.HttpStatus.NOT_FOUND));
+        scope.requireDelivery(facture.getLivraison());
+        if (facture.getPdf() == null) throw new org.springframework.web.server.ResponseStatusException(org.springframework.http.HttpStatus.NOT_FOUND, "Aucun PDF archive pour cette ancienne facture");
+        return facture;
     }
 }

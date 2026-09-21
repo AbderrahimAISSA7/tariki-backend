@@ -13,6 +13,10 @@ public class EntrepriseMapper {
         dto.setAdresse(entreprise.getAdresse());
         dto.setEmail(entreprise.getEmail());
         dto.setTelephone(entreprise.getTelephone());
+        dto.setIce(entreprise.getIce());
+        dto.setIdentifiantFiscal(entreprise.getIdentifiantFiscal());
+        dto.setRegistreCommerce(entreprise.getRegistreCommerce());
+        dto.setLogo(entreprise.getLogoPng() == null ? null : "data:image/png;base64," + java.util.Base64.getEncoder().encodeToString(entreprise.getLogoPng()));
         return dto;
     }
     public Entreprise toEntity(EntrepriseDTO dto) {

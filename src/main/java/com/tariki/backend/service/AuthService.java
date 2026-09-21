@@ -100,7 +100,7 @@ public class AuthService {
         return buildResponse(user);
     }
 
-    private AuthResponse buildResponse(User user) {
+    AuthResponse buildResponse(User user) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(user.getUsername());
         String accessToken = jwtService.generateAccessToken(userDetails, user.getRole().name());
 

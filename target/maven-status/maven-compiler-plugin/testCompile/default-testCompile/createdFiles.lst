@@ -1,3 +1,5 @@
 com\tariki\backend\ChatEncryptionTest.class
 com\tariki\backend\ChatAccessTest.class
+com\tariki\backend\DeliveryWorkflowTest.class
+com\tariki\backend\TrackingAccessTest.class
 com\tariki\backend\ProfileAccessTest.class

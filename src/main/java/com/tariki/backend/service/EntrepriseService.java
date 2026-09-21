@@ -36,12 +36,24 @@ public class EntrepriseService {
 
     public EntrepriseDTO save(EntrepriseDTO dto) {
         if (dto.getId() != null) scope.requireVisible(findById(dto.getId()) != null);
-        Entreprise saved = repository.save(mapper.toEntity(dto));
+        Entreprise entity = dto.getId() == null ? new Entreprise() : repository.findById(dto.getId()).orElseThrow();
+        entity.setNom(dto.getNom()); entity.setAdresse(dto.getAdresse()); entity.setEmail(dto.getEmail()); entity.setTelephone(dto.getTelephone());
+        Entreprise saved = repository.save(entity);
         return mapper.toDTO(saved);
     }
 
     public void delete(Long id) {
         scope.requireVisible(findById(id) != null);
         repository.deleteById(id);
+    }
+
+    public EntrepriseDTO billing(Long id, com.tariki.backend.dto.DeliveryWorkflowDTO.CompanyBilling request) {
+        Entreprise e=repository.findById(id).orElseThrow(() -> new org.springframework.web.server.ResponseStatusException(org.springframework.http.HttpStatus.NOT_FOUND));
+        scope.requireCompany(e);
+        e.setNom(request.nom().trim()); e.setAdresse(request.adresse().trim()); e.setEmail(request.email().trim()); e.setTelephone(request.telephone().trim());
+        e.setIce(request.ice()); e.setIdentifiantFiscal(request.identifiantFiscal()); e.setRegistreCommerce(request.registreCommerce());
+        if (request.removeLogo()) e.setLogoPng(null);
+        else if (request.logo()!=null) e.setLogoPng(DocumentImages.decode(request.logo(),false));
+        return mapper.toDTO(repository.save(e));
     }
 }

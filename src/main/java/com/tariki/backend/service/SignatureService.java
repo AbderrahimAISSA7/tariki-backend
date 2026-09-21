@@ -40,6 +40,8 @@ public class SignatureService {
 
     public SignatureDTO save(SignatureDTO dto) {
         if (dto.getId() != null) scope.requireVisible(findById(dto.getId()) != null);
+        protect(dto.getId());
+        if ("RECEPTION_CLIENT".equals(dto.getType())) throw immutable();
         Livraison livraison = dto.getLivraisonId() != null ? livraisonRepository.findById(dto.getLivraisonId()).orElse(null) : null;
         scope.requireDelivery(livraison);
         Signature saved = repository.save(mapper.toEntity(dto, livraison));
@@ -48,6 +50,13 @@ public class SignatureService {
 
     public void delete(Long id) {
         scope.requireVisible(findById(id) != null);
+        protect(id);
         repository.deleteById(id);
+    }
+    private void protect(Long id) {
+        if (id != null && repository.findById(id).filter(s -> s.getUtilisateurId() != null || s.getImagePng() != null || "RECEPTION_CLIENT".equals(s.getType())).isPresent()) throw immutable();
+    }
+    private org.springframework.web.server.ResponseStatusException immutable() {
+        return new org.springframework.web.server.ResponseStatusException(org.springframework.http.HttpStatus.CONFLICT,"La preuve de reception est immuable et doit provenir du client connecte");
     }
 }

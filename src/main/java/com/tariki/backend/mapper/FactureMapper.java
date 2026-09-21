@@ -11,6 +11,8 @@ public class FactureMapper {
         FactureDTO dto = new FactureDTO();
         dto.setId(facture.getId());
         dto.setNumero(facture.getNumero());
+        dto.setEmiseAt(facture.getEmiseAt());
+        dto.setPdfAvailable(facture.getPdf() != null);
         dto.setMontantHT(facture.getMontantHT());
         dto.setMontantTVA(facture.getMontantTVA());
         dto.setMontantTTC(facture.getMontantTTC());
