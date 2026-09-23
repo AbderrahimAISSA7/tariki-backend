@@ -1,6 +1,7 @@
 package com.tariki.backend.service;
 
 import com.tariki.backend.dto.LivraisonDTO;
+import com.tariki.backend.dto.NavigationDTO;
 import com.tariki.backend.mapper.LivraisonMapper;
 import com.tariki.backend.model.*;
 import com.tariki.backend.repository.*;
@@ -99,6 +100,9 @@ public class LivraisonService {
         livraison.setDateLivraison(dto.getDateLivraison());
         livraison.setVilleDepart(dto.getVilleDepart().trim());
         livraison.setVilleArrivee(dto.getVilleArrivee().trim());
+        if (dto.getAdresseLivraison() != null || dto.getDestinationLatitude() != null || dto.getDestinationLongitude() != null) {
+            setDestination(livraison, dto.getAdresseLivraison(), dto.getDestinationLatitude(), dto.getDestinationLongitude());
+        }
         livraison.setMarchandise(dto.getMarchandise().trim());
         livraison.setPoidsTonnes(dto.getPoidsTonnes());
         livraison.setChauffeur(chauffeur);
@@ -137,6 +141,45 @@ public class LivraisonService {
         livraison.setDernierePosition("EN_ATTENTE_VALIDATION".equals(statut) ? livraison.getVilleArrivee() : livraison.getVilleDepart());
         livraison.setMiseAJour(LocalDateTime.now());
         return mapper.toDTO(repository.saveAndFlush(livraison));
+    }
+
+    public LivraisonDTO updateDestination(Long id, NavigationDTO.Destination destination) {
+        repository.lockRow(id);
+        Livraison livraison = visible(id);
+        scope.requireCompany(livraison.getEntreprise());
+        if (!List.of("PROGRAMMEE", "EN_COURS", "DEMARRE").contains(livraison.getStatut())) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "La destination d'une livraison arrivee ne peut plus etre modifiee");
+        }
+        if (!Objects.equals(destination.version(), livraison.getVersion())) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "La livraison a change. Actualisez la page.");
+        }
+        setDestination(livraison, destination.adresseLivraison(), destination.destinationLatitude(), destination.destinationLongitude());
+        livraison.setMiseAJour(LocalDateTime.now());
+        return mapper.toDTO(repository.saveAndFlush(livraison));
+    }
+
+    @Transactional(readOnly = true)
+    public NavigationDTO.Target navigationTarget(Long id) {
+        User viewer = scope.currentUser();
+        if (viewer.getRole() != User.Role.CHAUFFEUR) throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+        Livraison livraison = visible(id);
+        if (!sameCompany(viewer.getEntreprise(), livraison.getEntreprise())) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        if (!List.of("EN_COURS", "DEMARRE").contains(livraison.getStatut())) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Le guidage exige une livraison en cours");
+        }
+        if (!NavigationDTO.coordinates(livraison.getDestinationLatitude(), livraison.getDestinationLongitude())) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Le point de livraison doit etre renseigne par l'entreprise");
+        }
+        return new NavigationDTO.Target(viewer.getId(), livraison.getDestinationLatitude(), livraison.getDestinationLongitude());
+    }
+
+    private void setDestination(Livraison livraison, String address, Double latitude, Double longitude) {
+        if (blank(address) || address.length() > 500 || !NavigationDTO.coordinates(latitude, longitude)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Renseignez une adresse et un point GPS valides pour la livraison");
+        }
+        livraison.setAdresseLivraison(address.trim());
+        livraison.setDestinationLatitude(latitude);
+        livraison.setDestinationLongitude(longitude);
     }
 
     public void delete(Long id) {

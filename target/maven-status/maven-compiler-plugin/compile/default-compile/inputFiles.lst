@@ -18,6 +18,7 @@ C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tari
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\DeliveryCompletionService.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\DocumentImages.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\TarikiBackendApplication.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\controller\NavigationController.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\DeliveryWorkflowDTO.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\SignatureDTO.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\model\CamionEntretien.java
@@ -46,6 +47,7 @@ C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tari
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\CamionEntretienCompletion.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\config\SwaggerConfig.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\exception\GlobalExceptionHandler.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\dto\NavigationDTO.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\model\LivePosition.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\controller\TrackingController.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\mapper\ChauffeurMapper.java
@@ -67,6 +69,7 @@ C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tari
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\model\Livraison.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\repository\FactureRepository.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\InvoicePdf.java
+C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\service\NavigationRoutingService.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\model\Entreprise.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\exception\ResourceNotFoundException.java
 C:\Users\ThinkPad\Documents\tariki-project\tariki-backend\src\main\java\com\tariki\backend\repository\ChauffeurRepository.java

@@ -1,6 +1,7 @@
 com\tariki\backend\controller\LivraisonController$StatusRequest.class
 com\tariki\backend\dto\DeliveryWorkflowDTO$Documents.class
 com\tariki\backend\controller\EntrepriseController.class
+com\tariki\backend\controller\NavigationController.class
 com\tariki\backend\dto\TrackingDTO.class
 com\tariki\backend\controller\LivraisonController.class
 com\tariki\backend\dto\ChatDTO.class
@@ -8,6 +9,7 @@ com\tariki\backend\mapper\CamionMapper.class
 com\tariki\backend\repository\ChatMessageRepository.class
 com\tariki\backend\repository\LivePositionRepository.class
 com\tariki\backend\dto\DeliveryWorkflowDTO$Receipt.class
+com\tariki\backend\dto\NavigationDTO.class
 com\tariki\backend\dto\CamionEntretienCompletion.class
 com\tariki\backend\model\LivePosition.class
 com\tariki\backend\service\CamionEntretienService.class
@@ -23,6 +25,7 @@ com\tariki\backend\controller\ChatController.class
 com\tariki\backend\dto\auth\AuthResponse.class
 com\tariki\backend\model\Camion$CamionBuilder.class
 com\tariki\backend\model\Livraison.class
+com\tariki\backend\dto\NavigationDTO$Origin.class
 com\tariki\backend\dto\ChauffeurDTO.class
 com\tariki\backend\repository\FactureRepository.class
 com\tariki\backend\service\ChatService$Changed.class
@@ -52,6 +55,7 @@ com\tariki\backend\mapper\SignatureMapper.class
 com\tariki\backend\mapper\ChauffeurMapper.class
 com\tariki\backend\config\DemoProfiles.class
 com\tariki\backend\model\Signature$SignatureBuilder.class
+com\tariki\backend\dto\NavigationDTO$Target.class
 com\tariki\backend\service\ChatEvents$Connection.class
 com\tariki\backend\service\AuthService.class
 com\tariki\backend\dto\ClientDTO.class
@@ -76,6 +80,7 @@ com\tariki\backend\TarikiBackendApplication.class
 com\tariki\backend\service\FactureService.class
 com\tariki\backend\repository\ClientRepository.class
 com\tariki\backend\security\JwtService.class
+com\tariki\backend\service\NavigationRoutingService.class
 com\tariki\backend\model\Entreprise$EntrepriseBuilder.class
 com\tariki\backend\dto\TrackingDTO$Update.class
 com\tariki\backend\dto\CamionEntretienDTO.class
@@ -106,6 +111,7 @@ com\tariki\backend\repository\CamionEntretienRepository.class
 com\tariki\backend\dto\DeliveryWorkflowDTO$Pricing.class
 com\tariki\backend\model\Chauffeur$ChauffeurBuilderImpl.class
 com\tariki\backend\controller\ClientController.class
+com\tariki\backend\dto\NavigationDTO$Destination.class
 com\tariki\backend\model\Chauffeur.class
 com\tariki\backend\model\User.class
 com\tariki\backend\mapper\ClientMapper.class

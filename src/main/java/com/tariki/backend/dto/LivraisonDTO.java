@@ -19,6 +19,9 @@ public class LivraisonDTO {
     private String clientNom;
     private String villeDepart;
     private String villeArrivee;
+    private String adresseLivraison;
+    private Double destinationLatitude;
+    private Double destinationLongitude;
     private String marchandise;
     private java.math.BigDecimal poidsTonnes;
     private String dernierePosition;

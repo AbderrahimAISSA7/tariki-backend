@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.tariki.backend.DeliveryWorkflowTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.779 s -- in com.tariki.backend.DeliveryWorkflowTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.67 s -- in com.tariki.backend.DeliveryWorkflowTest

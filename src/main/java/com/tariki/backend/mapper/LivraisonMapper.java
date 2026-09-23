@@ -25,6 +25,9 @@ public class LivraisonMapper {
         dto.setClientNom(livraison.getClient() != null ? livraison.getClient().getNom() : null);
         dto.setVilleDepart(livraison.getVilleDepart());
         dto.setVilleArrivee(livraison.getVilleArrivee());
+        dto.setAdresseLivraison(livraison.getAdresseLivraison());
+        dto.setDestinationLatitude(livraison.getDestinationLatitude());
+        dto.setDestinationLongitude(livraison.getDestinationLongitude());
         dto.setMarchandise(livraison.getMarchandise());
         dto.setPoidsTonnes(livraison.getPoidsTonnes());
         dto.setDernierePosition(livraison.getDernierePosition());
@@ -54,6 +57,9 @@ public class LivraisonMapper {
                 .client(client)
                 .villeDepart(dto.getVilleDepart())
                 .villeArrivee(dto.getVilleArrivee())
+                .adresseLivraison(dto.getAdresseLivraison())
+                .destinationLatitude(dto.getDestinationLatitude())
+                .destinationLongitude(dto.getDestinationLongitude())
                 .marchandise(dto.getMarchandise())
                 .poidsTonnes(dto.getPoidsTonnes())
                 .build();

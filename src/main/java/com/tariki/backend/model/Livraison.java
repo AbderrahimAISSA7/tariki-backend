@@ -18,6 +18,10 @@ public class Livraison {
     private String statut;
     private String villeDepart;
     private String villeArrivee;
+    @Column(length = 500)
+    private String adresseLivraison;
+    private Double destinationLatitude;
+    private Double destinationLongitude;
     private String marchandise;
     private java.math.BigDecimal poidsTonnes;
     private String dernierePosition;

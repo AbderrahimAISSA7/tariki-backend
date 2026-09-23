@@ -33,6 +33,7 @@ Le backend exige `CHAT_ENCRYPTION_KEY`, injectée par Compose depuis le fichier 
 non versionné. Pour lancer avec Maven, exporter cette même variable et libérer le port 8080.
 Conserver la clé séparément des sauvegardes de la base.
 Voir [CHAT.md](CHAT.md) pour la messagerie chiffrée et [DEMO.md](DEMO.md) pour les comptes de test.
+Voir [NAVIGATION.md](NAVIGATION.md) pour les destinations precises et le guidage routier OSRM du chauffeur.
 
 ### Documentation API
 

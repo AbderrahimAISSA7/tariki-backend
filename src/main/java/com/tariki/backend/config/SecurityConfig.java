@@ -54,6 +54,8 @@ public class SecurityConfig {
                 .requestMatchers("/api/tracking/**").hasRole("CHAUFFEUR")
                 .requestMatchers("/api/chat/**").hasAnyRole("ENTREPRISE", "CHAUFFEUR", "CLIENT")
                 .requestMatchers(HttpMethod.PATCH, "/api/livraisons/*/statut").hasAnyRole("CHAUFFEUR", "ENTREPRISE", "ADMIN")
+                .requestMatchers(HttpMethod.POST, "/api/livraisons/*/navigation/route").hasRole("CHAUFFEUR")
+                .requestMatchers(HttpMethod.PATCH, "/api/livraisons/*/destination").hasAnyRole("ENTREPRISE", "ADMIN")
                 .requestMatchers(HttpMethod.GET, "/api/livraisons/**", "/api/signatures/**").authenticated()
                 .requestMatchers(HttpMethod.GET, "/api/factures/**").hasAnyRole("CLIENT", "ENTREPRISE", "ADMIN")
                 .requestMatchers(HttpMethod.GET, "/api/entreprises/**", "/api/camions/**", "/api/chauffeurs/**", "/api/clients/**").hasAnyRole("ENTREPRISE", "ADMIN")

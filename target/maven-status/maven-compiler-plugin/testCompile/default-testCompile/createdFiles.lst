@@ -1,4 +1,6 @@
 com\tariki\backend\TrackingAccessTest.class
+com\tariki\backend\NavigationAccessTest.class
+com\tariki\backend\NavigationRoutingTest.class
 com\tariki\backend\ChatEncryptionTest.class
 com\tariki\backend\CamionWorkflowTest.class
 com\tariki\backend\ChatAccessTest.class
